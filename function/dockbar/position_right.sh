@@ -9,6 +9,7 @@ sed -i "s/panel_position = top center horizontal/panel_position = center center 
 
 sed -i '166s/.*/<position>Right<\/position>/' ~/.config/openbox/rc.xml
 #riavvia tint2
-openbox --reconfigure
+
 killall -SIGUSR1 tint2
+openbox --reconfigure
 # end of script 
