@@ -10,8 +10,8 @@ sed -i "s/panel_position = top center horizontal/panel_position = bottom center 
 sed -i "s/<position>Top</position>/<position>Bottom</position>/" ~/.config/openbox/rc.xml
 sed -i "s/<position>Left</position>/<position>Bottom</position>/" ~/.config/openbox/rc.xml
 sed -i "s/<position>Right</position>/<position>Bottom</position>/" ~/.config/openbox/rc.xml
-#riavvia tint2
 
+#riavvia tint2
 killall -SIGUSR1 tint2
 openbox --reconfigure
 # end of script 
