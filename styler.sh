@@ -166,6 +166,16 @@ cp ~/.config/tint2/dock_tint2rc ~/.config/tint2/default_dock_tint2rc;
 fi
 }
 
+function verify_dock_autostart {
+  grep "dock_tint2rc" ~/.config/openbox/autostart.sh;
+   if [ "$?" == "1" ];
+     then 
+       echo "#(sleep 6 && tint2 -c ~/.config/tint2/dock_tint2rc) &" >> ~/.config/openbox/autostart.sh;
+     else
+       echo "do nothing";
+   fi;
+}
+
 
 ##PRESLECTER##
 #declare variables
@@ -501,6 +511,7 @@ function autohide_dock {
 # execute preselecter
 
   verify_dockbar;
+  verify_dock_autostart;
   serenity;
   sea;
   fos;
