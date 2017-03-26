@@ -1,5 +1,5 @@
 #!/bin/bash
-# enable conky autostart
+# enable dock autostart
 
 function verify_dock {
   grep "(sleep 6 && tint2 -c" ~/.config/openbox/autostart.sh;
