@@ -4,5 +4,6 @@
 # Author: Ciotola Rosario blogsalentos@gmail.com
 sed -i '175s/.*/<autoHide>yes<\/autoHide>/' ~/.config/openbox/rc.xml;
 #riavvia tint2
+killall -SIGUSR1 tint2
 openbox --reconfigure
 # end of script 
