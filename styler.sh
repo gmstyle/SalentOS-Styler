@@ -1097,6 +1097,11 @@ export Styler=$(cat <<End_of_Text
                     <label>"`gettext $"Restore default"`"</label>
                     <action>/usr/local/bin/styler/function/dockbar/restore_default.sh</action>
                </button>
+<button>
+                    <input file stock="gtk-refresh"></input>
+                    <label>"`gettext $"Restart"`"</label>
+                    <action>/usr/bin/tint2restart</action>
+                 </button>
 
 </vbox>
 </frame>
