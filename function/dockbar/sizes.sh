@@ -1,8 +1,8 @@
 #!/bin/bash
 ####################################################
-# sizes.sh vers 1.1 (november  2016)
+# sizedoc.sh vers 1.1 (march  2017)
 # 
-# Modifica il size e percentuale della barra tint2
+# Modifica altezza della dock 
 # Authors: Rosario Ciotola - SalentOS Community
 # email : blogsalentos@gmail.com
 # www.salentos.it
@@ -26,33 +26,30 @@ flag=0
 while [ $flag -eq 0 ]; do
 	val=`grep  "panel_size ="  ~/.config/tint2/dock_tint2rc`
 	v=${val#*= }
-	p=${v%%%*}
 	s=${v##*%}
 	i=${#s};i=$((i-1))
 	s=${s:1:$i}    
-	A=$(yad --title="Dock size settings" --window-icon=/usr/share/pixmaps/menu.png \
-		--width=250	 --height=100 --center  \
-		--text-align=left --image-on-top \
+	H=$(yad --title="Dock size settings" --window-icon=/usr/share/pixmaps/menu.png \
+	--width=250	 --height=100 --center  \
+	--text-align=left --image-on-top \
 		--form \
-		--text="Set panel ratio" --separator=" " \
-		--field="Length % :NUM" "$p!10..100!1" \
-		--field="Height px:NUM" "$s!30..150!1" \
-		 --button=gtk-close:1 --button=gtk-apply:0 )
-	uscita=$?	
+		--text="Set Height dock (min 30 px)" \
+		--field="Size in pixel:"NUM "$s!30..150!1" \
+		    --button=gtk-cancel:1 --button=gtk-apply:0)
+	uscita=$?
+	i=${#H};i=$((i-1))
+	H=${H:0:$i} 	
 	case $uscita in
 		 252)
   		    # tasto x finestra uscita
   		    flag=1
         	 ;;  
            0)
-			k=0
-			for j in $A; do
-				v[k]=$j; k=$((k+1)) 
-			done	
-			new="panel_size = ${v[0]}% ${v[1]}"
+			new="panel_size = 100% $H"
 			sed -i "s/$val/$new/" ~/.config/tint2/dock_tint2rc;
 			# riavvia tint2
 			killall -SIGUSR1 tint2
+			flag=1
 			 ;;
          	1) 
               flag=1
