@@ -151,12 +151,13 @@ launcher_item_app = /usr/share/applications/mousepad.desktop
 
 #-------------------------------------
 # Tooltip
-tooltip_show_timeout = 0.8
-tooltip_hide_timeout = 0.3
-tooltip_padding = 5 3
-tooltip_background_id = 1
+tooltip_show_timeout = 0
+tooltip_hide_timeout = 0
+tooltip_padding = 2 2
+tooltip_background_id = 5
 tooltip_font_color = #ffffff 100
-tooltip_font = Sans 10
+tooltip_font = Sans normal 8
+
 
 
 # End of config' >> ~/.config/tint2/dock_tint2rc;
