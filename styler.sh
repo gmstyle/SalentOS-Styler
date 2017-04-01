@@ -110,7 +110,7 @@ panel_margin = 0 0
 panel_padding = 0 4 0
 panel_background_id = 4
 wm_menu = 0
-panel_dock = 1
+panel_dock = 0
 panel_position = bottom center horizontal
 panel_layer = top
 panel_monitor = all
@@ -123,7 +123,7 @@ autohide_height = 4
 strut_policy = minimum
 panel_window_name = tint2
 disable_transparency = 0
-mouse_effects = 0
+mouse_effects = 1
 font_shadow = 0
 mouse_hover_icon_asb = 100 0 10
 mouse_pressed_icon_asb = 100 0 0
@@ -500,7 +500,7 @@ function autohide {
 }
 
 function autohide_dock { 
-  grep "<autoHide>no</autoHide>" ~/.config/openbox/rc.xml;
+  grep "autohide = 0" ~/.config/tint2/dock_tint2rc;
    if [ "$?" == "0" ];
      then 
        export autohide_dock=false;
